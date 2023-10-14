@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Model Data</title>
+</head>
+<body>
+    <h1>My Model Data</h1>
+    <ul>
+        {% for item in my_model_data %}
+            <li>{{ item.name }} - {{ item.description }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
