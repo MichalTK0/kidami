@@ -1,4 +1,3 @@
-/* Define theme-specific colors as CSS variables */
 :root.light-mode {
     /* Light */
     --html-bg: #e5e5e5;
@@ -8,6 +7,10 @@
     --a-color: #333333;
     --a-underline: #333333;
     --sep-color: #333333;
+    --dropdown-content-color: #333;
+    --dropdown-content-bg: #fff;
+    --dropdown-hover-bg: #eee;
+    --dropdown-shadow: rgba(0,0,0,0.2);
 }
 
 :root {
@@ -19,6 +22,10 @@
     --a-color: #C8C3BC;
     --a-underline: #C8C3BC;
     --sep-color: #C8C3BC;
+    --dropdown-content-color: #fff;
+    --dropdown-content-bg: #333;
+    --dropdown-hover-bg: #555;
+    --dropdown-shadow: rgba(0,0,0,0.2);
 }
 
 html {
@@ -36,6 +43,7 @@ body {
   max-width: 23cm;
   padding: 1em;
   background-color: var(--body-bg);
+  font-family: Lato
 }
 
 #content {
@@ -47,19 +55,19 @@ body {
 }
 
 a {
-    color: var(--a-color); /* Text color */
-    text-decoration: none; /* Remove the default underline */
-    border-bottom: 1px solid var(--a-underline); /* Custom underline color */
+    color: var(--a-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--a-underline);
 }
 
 a:hover {
-    border-bottom-color: red; /* Custom underline color on hover */
+    border-bottom-color: red;
 }
 .back-button {
-    font-size: 1rem; /* Adjust the font size as needed */
-    vertical-align: middle; /* Align vertically with the h1 text */
-    margin-left: 10px; /* Add spacing between h1 and the link */
-    display: inline-block; /* Display as an inline block to stay on the same line */
+    font-size: 1rem;
+    vertical-align: middle;
+    margin-left: 10px;
+    display: inline-block;
 }
 
 .header-dropdown {
@@ -68,14 +76,14 @@ a:hover {
 }
 
 .header-dropdown-content a {
-    color: #fff;
+    color: var(--dropdown-content-color);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
 
 .header-dropdown-content a:hover {
-    background-color: #555;
+    background-color: var(--dropdown-hover-bg);
 }
 
 .header-button {
@@ -85,33 +93,41 @@ a:hover {
     display: inline-block;
 }
 .header-dropdown-content {
-    display: none; /* Set the default state to hidden */
+    display: none;
     position: absolute;
-    background-color: #333;
+    background-color: var(--dropdown-content-bg);
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px --var(dropdown-shadow);
     z-index: 1;
 }
 
 .email-button {
-    /* Inherit common styling */
     font-size: 1rem;
     vertical-align: middle;
     margin-left: 10px;
     display: inline-block;
-    /* Set the background color to match your style */
 }
 
 .mode-button {
-    /* Inherit common styling */
     font-size: 1rem;
     vertical-align: middle;
     margin-left: 10px;
     display: inline-block;
-    /* Set the background color to match your style */
 }
 
 .section-separator {
-    border: 1px solid var(--sep-color); /* Adjust the border style as needed */
-    margin: 30px 0; /* Adjust the margin for spacing */
+    border: 1px solid var(--sep-color);
+    margin: 30px 0;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 15px;
+}
+
+.description {
+    margin-left: 10px;
 }

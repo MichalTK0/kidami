@@ -5,17 +5,13 @@
     <h1># Work Experience</h1>
     {% for experience in experiences %}
     <div class="experience">
-        <h2># {{ experience.title }}</h2>
-        <p class="company"># {{ experience.company }}</p>
+        <h2># {{ experience.title }}{% if experience.company %} at {{ experience.company }}{% endif %}</h2>
         <p class="dates">
             {{ experience.start_date|date:"F Y" }} - {% if not experience.end_date %}Present{% else %}{{ experience.end_date|date:"F Y" }}{% endif %}
         </p>
-        <ul class="experience-points">
-            {% for point in experience.description.all %}
-                <li>{{ point.point }}</li>
-            {% endfor %}
-        </ul>
+        <p class="description">{{ experience.description|safe }}</p>
     </div>
+    <hr class="section-separator">
     {% endfor %}
 </div>
 {% endblock %}

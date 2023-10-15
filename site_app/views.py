@@ -9,6 +9,9 @@ def index(request):
 
 def experiences(request):
     experience_data = Experience.objects.all().order_by('order')
-    experience_points_data = ExperiencePoint.objects.all().order_by('order')
-    return render(request, 'experiences.html', {'experiences': experience_data,
-                                                'experience_points': experience_points_data})
+    return render(request, 'experiences.html', {'experiences': experience_data})
+
+
+def projects(request):
+    project_data = Project.objects.all().order_by('order')
+    return render(request, 'projects.html', {'projects': project_data})

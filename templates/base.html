@@ -12,9 +12,6 @@
         <!-- Your header content goes here -->
         <h1>
             MK |
-            {% if not request.path == '/' %}
-                <a href="{% url 'index' %}" class="back-button">[Home]</a>
-            {% endif %}
             <div class="header-dropdown">
                 <a class="header-button" onclick="toggleDropdown(event)">[GitHub]</a>
                 <div class="header-dropdown-content">
@@ -24,6 +21,9 @@
             </div>
             <a class="email-button" onclick="copyToClipboard()">[Email]</a>
             <a class="mode-button" onclick="toggleTheme()" id="themeToggle">[Theme]</a>
+            {% if not request.path == '/' %}
+                <a href="{% url 'index' %}" class="back-button">[Home]</a>
+            {% endif %}
 
         </h1>
     </header>
