@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from api.views import SkillList
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("site_app.urls")),
+    path('api/skills/', SkillList.as_view(), name='skill-list'),
 ]
