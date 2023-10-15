@@ -1,16 +1,16 @@
 {% extends "base.html" %}
-
+{% block location %}Home{% endblock %}
 {% block content %}
 <div class="container mt-5">
-    <h1># Home</h1>
+    <h2># Home</h2>
     {% for section in main_data %}
     <div class="main_section">
         {% if section.href %}
-            <h2><a href="{{ section.href }}"># {{ section.title }}</a></h2>
+            <h3><a href="{{ section.href }}"># {{ section.title }}</a></h3>
         {% else %}
-            <h2># {{ section.title }}</h2>
+            <h3># {{ section.title }}</h3>
         {% endif %}
-        <div class="description">{{ section.description }}</div>
+        <div class="description">{{ section.description|safe }}</div>
         <hr class="section-separator">
     </div>
     {% endfor %}

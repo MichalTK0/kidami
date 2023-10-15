@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-
+{% block location %}Projects{% endblock %}
 {% block content %}
 <div class="container mt-5">
-    <h1># Projects</h1>
+    <h2># Projects</h2>
     {% for project in projects %}
     <div class="project">
-        <h2>{% if project.href %}<a href="{{ project.href }}">{{ project.title }}</a>{% else %}{{ project.title }}{% endif %}</h2>
-        <p class="description">{{ project.description|safe }}</p>
+        <h3>{% if project.href %}<a href="{{ project.href }}">{{ project.title }}</a>{% else %}{{ project.title }}{% endif %}</h3>
+        <div class="description">{{ project.description|safe }}</div>
     </div>
     <hr class="section-separator">
     {% endfor %}

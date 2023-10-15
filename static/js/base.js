@@ -73,6 +73,22 @@ function loadTheme() {
 // Load theme state on page load
 loadTheme();
 
+function updateClock() {
+    const clock = document.getElementById("clock");
+    if (clock) {
+        const now = new Date();
+        const timeOptions = { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false };
+        const timeString = now.toLocaleTimeString(undefined, timeOptions);
+        clock.textContent = "[" + timeString + "]";
+    }
+}
+
+function startClock() {
+    updateClock(); // Update the clock immediately
+    setInterval(updateClock, 1000); // Update the clock every second
+}
+
+document.addEventListener("DOMContentLoaded", startClock);
 
 
 
