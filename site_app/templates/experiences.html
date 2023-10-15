@@ -2,14 +2,19 @@
 
 {% block content %}
 <div class="container mt-5">
-    <h1># Work Experience</h1>
+    <h1># Experience</h1>
     {% for experience in experiences %}
     <div class="experience">
         <h2># {{ experience.title }}{% if experience.company %} at {{ experience.company }}{% endif %}</h2>
         <p class="dates">
             {{ experience.start_date|date:"F Y" }} - {% if not experience.end_date %}Present{% else %}{{ experience.end_date|date:"F Y" }}{% endif %}
         </p>
-        <p class="description">{{ experience.description|safe }}</p>
+        <div class="description">{{ experience.description|safe }}</div>
+        <div class="skills">
+            {% if experience.skills.all %}
+                <p class="skills-label">Skills used: {{ experience.skills.all|join:", " }}</p>
+            {% endif %}
+        </div>
     </div>
     <hr class="section-separator">
     {% endfor %}

@@ -12,6 +12,13 @@ class MainSection(BaseModel):
         return self.title
 
 
+class Skill(models.Model):
+    title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
+
+
 class Experience(BaseModel):
     title = models.CharField(max_length=100)
     company = models.CharField(blank=True, max_length=100)
@@ -19,6 +26,7 @@ class Experience(BaseModel):
     end_date = models.DateField(blank=True, null=True, default=None)
     description = models.TextField()
     order = models.PositiveIntegerField(blank=True, default=0)
+    skills = models.ManyToManyField(Skill, blank=True)
 
     def __str__(self):
         return f"{self.title} at {self.company}"
