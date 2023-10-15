@@ -11,7 +11,9 @@
             <h3># {{ section.title }}</h3>
         {% endif %}
         <div class="description">{{ section.description|safe }}</div>
-        <hr class="section-separator">
+        {% if not forloop.last %}
+            <hr class="section-separator">
+        {% endif %}
     </div>
     {% endfor %}
 </div>

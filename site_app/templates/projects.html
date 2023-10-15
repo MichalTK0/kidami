@@ -5,10 +5,12 @@
     <h2># Projects</h2>
     {% for project in projects %}
     <div class="project">
-        <h3>{% if project.href %}<a href="{{ project.href }}">{{ project.title }}</a>{% else %}{{ project.title }}{% endif %}</h3>
+        <h3>{% if project.href %}<a href="{{ project.href }}" target="_blank">{{ project.title }}</a>{% else %}{{ project.title }}{% endif %}</h3>
         <div class="description">{{ project.description|safe }}</div>
     </div>
-    <hr class="section-separator">
+    {% if not forloop.last %}
+        <hr class="section-separator">
+    {% endif %}
     {% endfor %}
 </div>
 {% endblock %}
