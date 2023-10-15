@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1># Home</h1>
+    {% for section in main_data %}
+    <div class="main_section">
+        {% if section.href %}
+            <h2><a href="{{ section.href }}"># {{ section.title }}</a></h2>
+        {% else %}
+            <h2># {{ section.title }}</h2>
+        {% endif %}
+        <p class="description">{{ section.description }}</p>
+
+        <!-- Add a line separator using an <hr> element -->
+        <hr class="section-separator">
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

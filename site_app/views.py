@@ -1,7 +1,14 @@
 from django.shortcuts import render
-from .models import MyModel
+from .models import *
 
 
 def index(request):
-    my_model_data = MyModel.objects.all()
-    return render(request, 'my_model_template.html', {'my_model_data': my_model_data})
+    main_data = MainSection.objects.all().order_by('order')
+    return render(request, 'index.html', {'main_data': main_data})
+
+
+def experiences(request):
+    experience_data = Experience.objects.all().order_by('order')
+    experience_points_data = ExperiencePoint.objects.all().order_by('order')
+    return render(request, 'experiences.html', {'experiences': experience_data,
+                                                'experience_points': experience_points_data})

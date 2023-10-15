@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1># Work Experience</h1>
+    {% for experience in experiences %}
+    <div class="experience">
+        <h2># {{ experience.title }}</h2>
+        <p class="company"># {{ experience.company }}</p>
+        <p class="dates">
+            {{ experience.start_date|date:"F Y" }} - {% if not experience.end_date %}Present{% else %}{{ experience.end_date|date:"F Y" }}{% endif %}
+        </p>
+        <ul class="experience-points">
+            {% for point in experience.description.all %}
+                <li>{{ point.point }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

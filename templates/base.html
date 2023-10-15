@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}kidami{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}">
+    <script src="{% static 'js/base.js' %}"></script>
+  </head>
+<body id="content">
+    <header>
+        <!-- Your header content goes here -->
+        <h1>
+            MK |
+            {% if not request.path == '/' %}
+                <a href="{% url 'index' %}" class="back-button">[Home]</a>
+            {% endif %}
+            <div class="header-dropdown">
+                <a class="header-button" onclick="toggleDropdown(event)">[GitHub]</a>
+                <div class="header-dropdown-content">
+                    <a class="header-button" target="_blank" href="https://github.com/MichalTK0">Personal: MichalTK0<link></a>
+                    <a class="header-button" target="_blank" href="https://github.com/michalkida">Professional: michalkida<link></a>
+                </div>
+            </div>
+            <a class="email-button" onclick="copyToClipboard()">[Email]</a>
+            <a class="mode-button" onclick="toggleTheme()" id="themeToggle">[Theme]</a>
+
+        </h1>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <!-- Your footer content goes here -->
+    </footer>
+</body>
+</html>
