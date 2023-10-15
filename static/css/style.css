@@ -133,6 +133,10 @@ li {
     margin-right: 10px;
 }
 
+.description .full {
+    display: none;
+}
+
 .skills {
     margin-left: 10px;
     margin-right: 10px;

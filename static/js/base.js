@@ -90,6 +90,31 @@ function startClock() {
 
 document.addEventListener("DOMContentLoaded", startClock);
 
+document.addEventListener("DOMContentLoaded", function() {
+    const readToggles = document.querySelectorAll(".read-toggle");
+
+    readToggles.forEach(function(toggle) {
+        toggle.addEventListener("click", function(event) {
+            event.preventDefault();
+            const description = event.target.closest(".description");
+            const fullText = description.querySelector(".full");
+            const truncatedText = description.querySelector(".truncated");
+            const buttonText = event.target;
+
+            if (fullText.style.display === "none" || fullText.style.display === "") {
+                fullText.style.display = "block";
+                truncatedText.style.display = "none";
+                buttonText.innerText = "Read less";
+            } else {
+                fullText.style.display = "none";
+                truncatedText.style.display = "block";
+                buttonText.innerText = "Read more";
+            }
+        });
+    });
+});
+
+
 
 
 

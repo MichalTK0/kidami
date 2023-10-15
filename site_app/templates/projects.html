@@ -6,7 +6,17 @@
     {% for project in projects %}
     <div class="project">
         <h3>{% if project.href %}<a href="{{ project.href }}" target="_blank">{{ project.title }}</a>{% else %}{{ project.title }}{% endif %}</h3>
-        <div class="description">{{ project.description|safe }}</div>
+        <div class="description">
+            <div class="truncated">
+                {{ project.description|truncatewords_html:100|safe }}
+            </div>
+            <div class="full" style="display: none;">
+                {{ project.description|safe }}
+            </div>
+            {% if project.description|length > 100 %}
+                <a href="#" class="read-toggle">Read more</a>
+            {% endif %}
+        </div>
     </div>
     {% if not forloop.last %}
         <hr class="section-separator">
