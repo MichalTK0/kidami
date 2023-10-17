@@ -1,0 +1,6 @@
+export EMAIL=testmail@gmail.com
+export DEBUG=True
+export SECRET_KEY=changeme!
+export DB_USERNAME=test
+export DB_PASSWORD=testpass
+export DB_HOST=localhost:27017
