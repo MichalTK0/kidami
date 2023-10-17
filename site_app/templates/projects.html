@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block location %}Projects{% endblock %}
 {% block content %}
+{% load word_count %}
 <div class="container mt-5">
     <h2># Projects</h2>
     {% for project in projects %}
@@ -13,9 +14,9 @@
             <div class="full" style="display: none;">
                 {{ project.description|safe }}
             </div>
-            {% if project.description|length > 100 %}
-                <a href="#" class="read-toggle">Read more</a>
-            {% endif %}
+        {% if project.description|word_count > 100 %}
+            <a href="#" class="read-toggle">Read more</a>
+        {% endif %}
         </div>
     </div>
     {% if not forloop.last %}
