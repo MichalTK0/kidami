@@ -19,7 +19,7 @@
                         <a class="header-button" target="_blank" href="https://github.com/michalkida">Professional: michalkida<link></a>
                     </div>
                 </div>
-                <a class="email-button" onclick="copyToClipboard()">[Email]</a>
+                <a class="email-button" onclick="copyToClipboard('{{ email }}')">[Email]</a>
                 <a class="mode-button" onclick="toggleTheme()" id="themeToggle">[Theme]</a>
                 {% if not request.path == '/' %}
                     <a href="{% url 'index' %}" class="back-button">[Home]</a>

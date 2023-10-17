@@ -15,8 +15,7 @@ document.addEventListener("click", function(event) {
     }
 });
 
-function copyToClipboard() {
-    var email = "your_email!";
+function copyToClipboard(email) {
     var emailButton = document.querySelector(".email-button");
 
     // Create a temporary input element to copy the email to the clipboard
