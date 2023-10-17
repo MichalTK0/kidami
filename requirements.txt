@@ -3,4 +3,5 @@ djongo
 pymongo==3.12.3
 pytz
 django-stubs
-rest_framework
+djangorestframework
+gunicorn
