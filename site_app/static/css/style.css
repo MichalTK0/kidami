@@ -143,13 +143,13 @@ li {
 }
 
 h1 {
-    line-height: 1; /* Adjust the value as needed to align the clock vertically */
+    line-height: 1;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Align content with space between */
+    justify-content: space-between;
 }
 
 .header-clock {
     font-size: 1rem;
-    margin-left: 10px; /* You can adjust the margin as needed */
+    margin-left: 10px;
 }
